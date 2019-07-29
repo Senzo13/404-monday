@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    
+        <div id="bloc" class="text" id="chibre">
+            <p></p>
+            <input autofocus>
+        </div>
+
+        <script>
+
+    
+            var word = "SHELL 3.0 Initialised...<br> Je suis un Anonymous, et je possède la puissance. <br> J'aimerais te faire entrer dans le cercle<br> Des puissant codeur de notre ère, te sens-tu prêt ? <br/> [oui] ; [non] ?"; //Text affiché sur la navigateur
+            var nb_car = word.length; // nombre de caractère dans la var word
+            var tab = word.split(""); // tableau qui reprend toutes les lettres de la var
+            texte = new Array; // Permet de faire mettre le tab dans un tableau texte pour faire un break
+            var txt = '';
+            var nb_msg = nb_car - 1; // Stop à la dernière lettre
+            for (i=0; i<nb_car; i++) { // Boucle qui pars de 0 et incrémente +1 lettre 
+            texte[i] = txt+tab[i]; // Prend les éléments du txt et tableau
+            var txt = texte[i]; // Prend chaque lettre et les affiche côte à côte sinon elle se chevauche l'une sur l'autre
+            }
+            
+            // //// FUNCTION Permettant de lancer le défilement du code Js ////
+            word = 0; // Permet de prendre les lettres one by one en affichage
+             function Message() {
+             var phrase = document.getElementById('bloc').childNodes; // Prend l'élément enfant du bloc parent soit class text
+             phrase[1].innerHTML = texte[word]; 
+             word++; // incrémente +1 
+             if(word >= texte.length) // Si le nbre de lettre est inférieur au text, alors il continue 
+             word = nb_msg;
+            }
+             if(document.getElementById)
+             setInterval("Message()",40); // Permet de faire un intervalle dans l'affichage de lettre vitesse 100.
+        </script>
+
+</body>
+</html>
